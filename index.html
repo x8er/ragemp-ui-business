@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>BizUI</title>
+</head>
+
+<body>
+  <div id="bizUI">
+    <div class="menu">
+      <img src="icons/logo.png" class="menu__logo">
+      <div class="menu__title">Меню бизнеса</div>
+      <div @click="isActive = 'sales'" :class="{active: isActive === 'sales'}" class="menu__el">Последние продажи</div>
+      <div @click="isActive = 'catalog'" :class="{active: isActive === 'catalog'}" class="menu__el">Каталог товаров
+      </div>
+      <div @click="isActive = 'manage'" :class="{active: isActive === 'manage'}" class="menu__el">Управление бизнесом
+      </div>
+      <div @click="blackoutShow = true; sellBizShow = true;" class="menu__el">Продать бизнес</div>
+    </div>
+    <div class="main">
+      <div v-show="isActive === 'sales'" class="sales">
+        <div class="sales__head">
+          <div class="item" style="width: 200px">Товар</div>
+          <div class="item" style="width: 180px">Дата</div>
+          <div class="item" style="width: 200px">Сумма</div>
+          <div class="item">Количество</div>
+        </div>
+        <div class="sales__list">
+          <div v-for="item in salesList" class="prod">
+            <div class="item" style="width: 200px">
+              <div class="item__name">{{ item.data.name }}</div>
+              <div class="item__type">{{ (item.data.type === 'PRODUCTS') ? 'Продукты' : 'Прочее' }}</div>
+            </div>
+            <div class="item" style="width: 180px">
+              <div class="item__name">{{ item.time }}</div>
+              <div class="item__type">{{ item.date }}</div>
+            </div>
+            <div class="item" style="width: 200px">
+              <div class="item__name">$ {{ item.earn }}</div>
+              <div class="item__type">{{ item.fullName }}</div>
+            </div>
+            <div class="item">
+              <div class="item__name">{{ item.amount }} шт.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div v-show="isActive === 'catalog'" class="catalog">
+        <div class="catalog__head">
+          <div @click="catalogActive = 'APPLIANCES'" :class="{active: catalogActive === 'APPLIANCES'}" class="item">
+            Бытовые<span>приборы</span></div>
+          <div @click="catalogActive = 'PRODUCTS'" :class="{active: catalogActive === 'PRODUCTS'}" class="item">Продукты
+          </div>
+          <div @click="catalogActive = 'INSTRUMENTS'" :class="{active: catalogActive === 'INSTRUMENTS'}" class="item">
+            Инструменты</div>
+          <div @click="catalogActive = 'OTHERS'" :class="{active: catalogActive === 'OTHERS'}" class="item">Прочее</div>
+        </div>
+        <div class="catalog__list">
+          <div v-for="item in productList" v-show="item.data.type === catalogActive"
+            @click="blackoutShow = true; changeProductPriceShow = true; oldPrice = item.price;" class="item">
+            <img src="icons/sim.png">
+            <div class="item__title">{{ item.data.name }}</div>
+            <div class="item__price">${{ item.price }}</div>
+          </div>
+        </div>
+      </div>
+      <div v-show="isActive === 'manage'" class="manage">
+        <div class="row">
+          <div class="item">
+            Баланс счёта
+            <span>$ {{ money }}</span>
+          </div>
+          <div class="item">
+            Продукты
+            <span>{{ products }}</span>
+          </div>
+          <div class="item">
+            Налог
+            <span>$ {{ taxes }}</span>
+          </div>
+        </div>
+        <div class="row" style="height: 100%;">
+          <div class="popular">
+            <div class="popular__title">Популярные товары</div>
+            <div v-for="item in popularProducts" class="popular__item">
+              <img src="icons/pizza.png">
+              <div class="name">{{ item.data.name }}</div>
+              <div class="price">${{ item.price }}</div>
+              <div class="amount">{{ item.amount }} шт.</div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="item">
+              Прибыль
+              <span>$ {{ earnings }}</span>
+            </div>
+            <div class="item">
+              Продажи
+              <span>$ {{ sales }}</span>
+            </div>
+            <div class="withdraw-btn">Вывести</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div v-show="blackoutShow" @click="closeOnlyOverBlackout" class="blackout">
+      <div v-if="sellBizShow" class="sell-biz">
+        <div class="sell-biz__title">
+          Кому вы хотите
+          <span> продать бизнес?</span>
+        </div>
+        <div class="sell-biz__row">
+          <div class="button">Игроку</div>
+          <div class="button">Государству</div>
+        </div>
+      </div>
+      <div v-if="changeProductPriceShow" @click="closeOnlyOverBlackout" class="change-product-price">
+        <div class="change-product-price__title">Изменение стоимости товара</div>
+        <div class="change-product-price__row">
+          <div>Стоимость</div>
+          <div style="font-weight: 600;">${{ oldPrice }}</div>
+        </div>
+        <div class="change-product-price__row">
+          <div style="font-weight: 600;">Новая стоимость</div>
+          <input v-model="newPrice" type="text" placeholder="Введите стоимость">
+        </div>
+        <div class="button">Применить</div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

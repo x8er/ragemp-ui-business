@@ -1,0 +1,667 @@
+@font-face {
+  src: url("fonts/TTNorms-Bold.ttf");
+  font-family: TTNorms;
+  font-weight: 600;
+}
+
+@font-face {
+  src: url("fonts/TTNorms-Regular.ttf");
+  font-family: TTNorms;
+  font-weight: 400;
+}
+
+@font-face {
+  src: url("fonts/TTNorms-Light.ttf");
+  font-family: TTNorms;
+  font-weight: 200;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: inherit;
+}
+
+#bizUI {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 10px;
+  height: 780px;
+  overflow: hidden;
+  font-family: TTNorms;
+  -webkit-box-shadow: 0 75px 114px rgba(0, 0, 0, 0.79);
+          box-shadow: 0 75px 114px rgba(0, 0, 0, 0.79);
+}
+
+#bizUI .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-image: url("imgs/menu-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#bizUI .menu__title {
+  text-align: center;
+  color: white;
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 60px;
+}
+
+#bizUI .menu__el {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 406px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 10px;
+  padding: 24px 0 24px 80px;
+  color: white;
+  opacity: .2;
+  font-size: 21px;
+  font-weight: 400;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+  margin: 5px 0;
+}
+
+#bizUI .menu__el::before {
+  content: url("icons/pos-terminal.png");
+  margin-right: 15px;
+}
+
+#bizUI .menu__el:hover {
+  background-color: #d71516;
+  opacity: 1;
+  -webkit-box-shadow: 0 18px 43px rgba(191, 26, 26, 0.6);
+          box-shadow: 0 18px 43px rgba(191, 26, 26, 0.6);
+}
+
+#bizUI .menu__el.active {
+  background-color: #d71516;
+  opacity: 1;
+  -webkit-box-shadow: 0 18px 43px rgba(191, 26, 26, 0.6);
+          box-shadow: 0 18px 43px rgba(191, 26, 26, 0.6);
+}
+
+#bizUI .main {
+  width: 860px;
+  background-image: url("imgs/main-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#bizUI .main .sales {
+  padding: 30px 13px 0 0;
+}
+
+#bizUI .main .sales__head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-left: 38px;
+  border-radius: 10px;
+  background-color: black;
+  height: 62px;
+  margin: 0 15px 0 28px;
+}
+
+#bizUI .main .sales__head .item {
+  font-weight: 400;
+  font-size: 16px;
+  color: white;
+  opacity: .2;
+}
+
+#bizUI .main .sales__list {
+  margin-top: 34px;
+  padding-right: 15px;
+  padding: 0 15px 0 28px;
+  height: 605px;
+  overflow-y: auto;
+}
+
+#bizUI .main .sales__list::-webkit-scrollbar {
+  width: 2px;
+  background-color: black;
+}
+
+#bizUI .main .sales__list::-webkit-scrollbar-thumb {
+  background-color: white;
+}
+
+#bizUI .main .sales__list .prod {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-left: 38px;
+  margin-bottom: 18px;
+  border-radius: 10px;
+  background-color: black;
+  height: 71px;
+  -webkit-box-shadow: 0 16px 20px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 16px 20px rgba(0, 0, 0, 0.5);
+}
+
+#bizUI .main .sales__list .prod .item {
+  color: white;
+}
+
+#bizUI .main .sales__list .prod .item__name {
+  font-weight: 400;
+  font-size: 20px;
+  text-shadow: 0 0 20px white;
+}
+
+#bizUI .main .sales__list .prod .item__type {
+  font-weight: 200;
+  font-size: 14px;
+  opacity: .2;
+}
+
+#bizUI .main .sales__list .prod::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 2px;
+  height: 30px;
+  background-color: #d71516;
+  -webkit-box-shadow: 0 0 10px rgba(191, 26, 26, 0.6);
+          box-shadow: 0 0 10px rgba(191, 26, 26, 0.6);
+}
+
+#bizUI .main .sales__list .prod:last-child {
+  margin-bottom: 0;
+}
+
+#bizUI .main .catalog {
+  padding: 30px 68px 0 0;
+}
+
+#bizUI .main .catalog__head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-left: 68px;
+}
+
+#bizUI .main .catalog__head .item {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  max-width: 186px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 36px;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  line-height: .85;
+  height: 66px;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+  font-size: 18px;
+}
+
+#bizUI .main .catalog__head .item span {
+  font-size: 14px;
+}
+
+#bizUI .main .catalog__head .item:hover {
+  -webkit-box-shadow: 0 16px 20px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 16px 20px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 0 25px white;
+}
+
+#bizUI .main .catalog__head .item.active {
+  -webkit-box-shadow: 0 16px 20px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 16px 20px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 0 25px white;
+}
+
+#bizUI .main .catalog__head .item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 2px;
+  height: 24px;
+  background-color: #d71516;
+  -webkit-box-shadow: 0 0 10px rgba(191, 26, 26, 0.6);
+          box-shadow: 0 0 10px rgba(191, 26, 26, 0.6);
+}
+
+#bizUI .main .catalog__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 42px;
+  overflow-y: auto;
+  height: 612px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-left: 68px;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+}
+
+#bizUI .main .catalog__list::-webkit-scrollbar {
+  width: 2px;
+  background-color: black;
+}
+
+#bizUI .main .catalog__list::-webkit-scrollbar-thumb {
+  background-color: white;
+}
+
+#bizUI .main .catalog__list .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 10px;
+  border: 1px solid #941313;
+  background-color: rgba(0, 0, 0, 0.63);
+  -webkit-transition: -webkit-box-shadow .2s ease;
+  transition: -webkit-box-shadow .2s ease;
+  transition: box-shadow .2s ease;
+  transition: box-shadow .2s ease, -webkit-box-shadow .2s ease;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 191px;
+  height: 166px;
+  margin: 0 30px 38px 0;
+  font-size: 16px;
+}
+
+#bizUI .main .catalog__list .item__title {
+  margin-top: 20px;
+  font-weight: 200;
+  color: white;
+}
+
+#bizUI .main .catalog__list .item__price {
+  margin-top: 5px;
+  font-weight: 600;
+  color: #b81c1c;
+  text-shadow: 0 0 21px rgba(184, 28, 28, 0.59);
+}
+
+#bizUI .main .catalog__list .item:hover {
+  -webkit-box-shadow: 0 18px 20px rgba(0, 0, 0, 0.45);
+          box-shadow: 0 18px 20px rgba(0, 0, 0, 0.45);
+}
+
+#bizUI .main .manage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 30px 68px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 100%;
+}
+
+#bizUI .main .manage .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#bizUI .main .manage .row .item {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-left: 42px;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  width: 214px;
+  height: 132px;
+  font-weight: 200;
+  font-size: 22px;
+  margin-bottom: 41px;
+  -webkit-box-shadow: 0 16px 20px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 16px 20px rgba(0, 0, 0, 0.5);
+}
+
+#bizUI .main .manage .row .item span {
+  font-weight: 600;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+#bizUI .main .manage .row .item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 2px;
+  height: 50px;
+  background-color: #d71516;
+  -webkit-box-shadow: 0 0 10px rgba(191, 26, 26, 0.6);
+          box-shadow: 0 0 10px rgba(191, 26, 26, 0.6);
+}
+
+#bizUI .main .manage .row .popular {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 469px;
+  background-color: black;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 16px 20px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 16px 20px rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+#bizUI .main .manage .row .popular__title {
+  font-weight: 600;
+  font-size: 18px;
+  margin: 25px 0 15px 0;
+}
+
+#bizUI .main .manage .row .popular__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px 0;
+  margin-bottom: 10px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+}
+
+#bizUI .main .manage .row .popular__item img {
+  margin-right: 24px;
+}
+
+#bizUI .main .manage .row .popular__item .name {
+  font-weight: 200;
+  width: 200px;
+}
+
+#bizUI .main .manage .row .popular__item .price {
+  width: 100px;
+}
+
+#bizUI .main .manage .row .popular__item .amount {
+  width: 70px;
+  font-weight: 600;
+}
+
+#bizUI .main .manage .row .withdraw-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 600;
+  font-size: 20px;
+  background-color: black;
+  border-radius: 10px;
+  width: 214px;
+  height: 100px;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+  color: white;
+  margin-top: 141px;
+}
+
+#bizUI .main .manage .row .withdraw-btn:hover {
+  background-color: #d71516;
+  -webkit-box-shadow: 0 16px 20px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 16px 20px rgba(0, 0, 0, 0.5);
+}
+
+#bizUI .blackout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.74);
+}
+
+#bizUI .blackout .sell-biz {
+  background-color: #f1d1d1;
+  border-radius: 10px;
+  padding: 48px;
+}
+
+#bizUI .blackout .sell-biz__title {
+  text-align: center;
+  font-weight: 200;
+  font-size: 22px;
+  margin-bottom: 34px;
+}
+
+#bizUI .blackout .sell-biz__title span {
+  font-weight: 600;
+}
+
+#bizUI .blackout .sell-biz__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#bizUI .blackout .sell-biz__row .button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 55px;
+  width: 176px;
+  background-color: #d71516;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+#bizUI .blackout .sell-biz__row .button:first-child {
+  margin-right: 20px;
+}
+
+#bizUI .blackout .sell-biz__row .button:hover {
+  -webkit-box-shadow: 0 0 26px rgba(191, 26, 26, 0.7);
+          box-shadow: 0 0 26px rgba(191, 26, 26, 0.7);
+}
+
+#bizUI .blackout .change-product-price {
+  background-color: #f1d1d1;
+  border-radius: 10px;
+  padding: 48px;
+  min-width: 400px;
+}
+
+#bizUI .blackout .change-product-price__title {
+  font-weight: 600;
+  font-size: 22px;
+  margin-bottom: 34px;
+}
+
+#bizUI .blackout .change-product-price__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 60px;
+  padding: 0 30px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: white;
+  font-size: 16px;
+  font-weight: 200;
+  margin-bottom: 15px;
+  background-color: #d71516;
+  border-radius: 10px;
+}
+
+#bizUI .blackout .change-product-price__row input {
+  border: 0;
+  border-left: 2px solid rgba(255, 255, 255, 0.4);
+  padding-left: 5px;
+  background-color: transparent;
+  font-family: TTNorms;
+  font-weight: 200;
+  font-size: 16px;
+  width: 140px;
+  color: rgba(255, 255, 255, 0.4);
+  outline: none;
+}
+
+#bizUI .blackout .change-product-price__row input:focus {
+  color: white;
+}
+
+#bizUI .blackout .change-product-price .button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 600;
+  color: white;
+  border-radius: 10px;
+  height: 60px;
+  background-color: #570909;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+#bizUI .blackout .change-product-price .button:hover {
+  -webkit-box-shadow: 0 0 26px rgba(191, 26, 26, 0.7);
+          box-shadow: 0 0 26px rgba(191, 26, 26, 0.7);
+}
+/*# sourceMappingURL=style.css.map */
